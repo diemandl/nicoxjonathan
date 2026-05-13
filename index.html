@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Für ihn ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Für dich ❤️</h1>
+
+    <p id="reason">
+        Klick den Button :)
+    </p>
+
+    <div class="container" id="generator">
+
+        <img src="images/generator_new.png"
+            class="generator">
+
+        <img src="images/knob_new.png" onclick="startGenerator()" id="knob"
+            class="knob">
+
+        <img src="images/ball_new.png"  onclick="generateReason(event)" id="ball" class="ball">
+
+    </div>
+
+    <div class="noteContainer" id="note">
+        <div class="black-box" id="blur" onclick="closeNote()"></div>
+        <img src="images/note.png">
+        <p class="note-text" id="note-text">This is a text.</p>
+    </div>
+    
+
+    <div class="heart-container"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

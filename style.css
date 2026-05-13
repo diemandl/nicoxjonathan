@@ -1,0 +1,165 @@
+body {
+    background-color: #ffe6f0;
+    font-family: Arial;
+    text-align: center;
+    padding-top: 100px;
+    position: relative;
+}
+
+.heart {
+    position: absolute;
+    pointer-events: none;
+
+    width: var(--size);
+    height: var(--size);
+
+    animation: fly 1.2s ease-out forwards;
+}
+
+@keyframes fly {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.8);
+        opacity: 0;
+    }
+}
+
+.falling-heart {
+    position: fixed; /* Bleibt fixiert, auch beim Scrollen */
+    top: -50px;      /* Startet oberhalb des Sichtfelds */
+    z-index: -1;     /* Ganz wichtig: Hinter den Generator/Button! */
+    pointer-events: none;
+    user-select: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg); /* Fällt bis unter den Rand */
+        opacity: 0;
+    }
+}
+
+button {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+}
+
+.container {
+    position: relative;
+    width: 500px;
+
+    margin: 0 auto;
+}
+
+.generator {
+    width: 100%;
+    z-index: 1;
+}
+
+.knob {
+    position: absolute;
+
+    top: 338px;
+    left: 219px;
+
+    width: 60px;
+    z-index: 2;
+}
+
+.ball{
+    position: absolute;
+
+    top: 415px;
+    left: 225px;
+
+    width: 50px;
+    z-index: 2;
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.noteContainer {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000; 
+    opacity: 0;
+    pointer-events: none;
+    
+    /* Flexbox macht das Zentrieren super einfach */
+    display: flex;
+    flex-direction: column; /* Stapelt Bild und Text untereinander */
+    justify-content: center; /* Zentriert vertikal */
+    align-items: center;    /* Zentriert horizontal */
+    
+    background-color: rgba(0, 0, 0, 0.7); /* Falls du hier die schwarze Box willst */
+}
+
+.noteContainer img {
+    max-width: 400px;
+    height: auto;
+    display: block;
+    /* Die transform und top/left Angaben hier entfernen, das macht jetzt Flexbox! */
+}
+
+.note-text {
+    position: absolute;   /* Löst den Text vom Fluss, damit er ÜBER dem Bild liegt */
+    top: 50%;             /* Startet bei 50% der Höhe des Containers */
+    left: 50%;            /* Startet bei 50% der Breite */
+    transform: translate(-50%, -50%); /* Zieht ihn genau um seine eigene Hälfte zurück */
+    
+    color: #333;          /* Dunkle Farbe, falls dein Notizzettel hell ist */
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    width: 200px;         /* Begrenzt die Breite, damit der Text nicht über den Zettel ragt */
+    z-index: 1001;        /* Sicherstellen, dass er über dem Bild liegt */
+    margin: 0;            /* Entfernt Standard-Abstände */
+}
+.black-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Schwarz mit 70% Deckkraft */
+    z-index: -1; /* Schiebt die Box hinter den Inhalt des Containers */
+}
+
+.shake {
+  animation: shake 0.3s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(5px, 5px) rotate(5deg); }
+  50% { transform: translate(0, 0) rotate(0eg); }
+  75% { transform: translate(-5px, 5px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.rotate {
+  animation: rotate 0.4s infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(120deg); }
+  50% { transform: rotate(240deg); }
+  75% { transform: rotate(320deg); }
+  100% { transform: rotate(360deg); }
+}
