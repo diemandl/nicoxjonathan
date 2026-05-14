@@ -4,37 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Für ihn ❤️</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
+    <div class="screen active" id="intro-screen">
     <h1>Für dich ❤️</h1>
-
-    <p id="reason">
-        Klick den Button :)
-    </p>
-
-    <div class="container" id="generator">
-
-        <img src="images/generator_new.png"
-            class="generator">
-
-        <img src="images/knob_new.png" onclick="startGenerator()" id="knob"
-            class="knob">
-
-        <img src="images/ball_new.png"  onclick="generateReason(event)" id="ball" class="ball">
-
+    <p>Ein kleines Liebesgeschenk...</p>
+    <button onclick="showScreen('menu-screen')">Los geht's!</button>
     </div>
 
-    <div class="noteContainer" id="note">
-        <div class="black-box" id="blur" onclick="closeNote()"></div>
-        <img src="images/note.png">
-        <p class="note-text" id="note-text">This is a text.</p>
+    <!-- MENU SCREEN -->
+    <div class="screen" id="menu-screen">
+    <h2>Was möchtest du machen?</h2>
+    <button onclick="showScreen('generator-screen')">💕 Warum ich dich liebe</button>
+    <button onclick="showScreen('timeline-screen')">📅 Unsere Timeline</button>
+    <button onclick="showScreen('bucket-list-screen')">🎯 Bucket List</button>
     </div>
-    
 
-    <div class="heart-container"></div>
+    <div class="screen" id="generator-screen">
+        <h1>Love Generator ❤️</h1>
+
+        <div class="container" id="generator">
+
+            <img src="images/generator_new.png"
+                class="generator">
+
+            <img src="images/knob_new.png" onclick="startGenerator()" id="knob"
+                class="knob">
+
+            <img src="images/ball_new.png"  onclick="generateReason(event)" id="ball" class="ball">
+
+        </div>
+
+        <div class="noteContainer" id="note">
+            <div class="black-box" id="blur" onclick="closeNote()"></div>
+            <img src="images/note.png">
+            <p class="note-text" id="note-text">This is a text.</p>
+        </div>
+        
+        <div class="heart-container"></div>
+
+        <button onclick="showScreen('menu-screen')" class="back-button">← Zurück</button>
+    </div>
+
+    <!-- TIMELINE SCREEN -->
+    <div class="screen" id="timeline-screen">
+        <h1>📅 Unsere Timeline</h1>
+        <p>Coming soon...</p>
+        <button onclick="showScreen('menu-screen')" class="back-button">← Zurück</button>
+    </div>
+
+    <!-- BUCKET LIST SCREEN -->
+    <div class="screen" id="bucket-list-screen">
+        <h1>🎯 Bucket List</h1>
+        <div id="map" class="bucket-map"></div>
+        <button onclick="showScreen('menu-screen')" class="back-button">← Zurück</button>
+    </div>
 
     <script src="script.js"></script>
 

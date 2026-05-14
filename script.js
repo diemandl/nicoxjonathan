@@ -46,6 +46,24 @@ function generateReason(event){
     hideBall();
 }
 
+function showScreen(screenId) {
+    // 1. Alle Screens verstecken
+    document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('active');
+    });
+
+    // 2. Den gewünschten Screen zeigen
+    document.getElementById(screenId).classList.add('active');
+
+    // 3. Karte initialisieren, wenn Bucket List Screen geöffnet wird
+    if (screenId === 'bucket-list-screen') {
+        setTimeout(() => {
+            initMap();
+        }, 100);
+    }
+}
+
+
 function closeNote(){
     document.getElementById("note").style.opacity = "0";
     document.getElementById("blur").style.pointerEvents = "none";
@@ -131,3 +149,91 @@ function hideBall() {
     ballImg.style.opacity = 0;
     ballImg.style.pointerEvents ="none";
 }
+
+// ===== BUCKET LIST MAP =====
+let map = null;
+
+function initMap() {
+    // Wenn Karte bereits existiert, nicht erneut initialisieren
+    if (map !== null) {
+        map.invalidateSize();
+        return;
+    }
+
+    // Karte erstellen (Zentrum: Europa)
+    map = L.map('map').setView([50, 10], 3);
+
+    // OpenStreetMap Layer hinzufügen
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(map);
+
+    // Bucket List Orte
+    const bucketListPlaces = [
+        { name: 'Olympiapark', lat: 48.175641, lng: 11.552256, emoji: '🎤', text: 'Wir zwei und Ikkimel 😍' },
+
+        { name: 'Therme Erding', lat: 48.290452, lng: 11.889017, emoji: '♨️', text: 'Noch tausend mal Therme Erding ♨️' },
+
+        { name: 'Primrose Hill', lat: 51.539341, lng: -0.160731, emoji: '🧺', text: 'Auf dem Primrose Hill ein Picknick mit Ausblick auf London.' },
+
+        { name: 'Highlands', lat: 57.493850, lng: -4.222918, emoji: '🏔️', text: 'In Schottland die Highlands erkunden' },
+
+        { name: 'Bali', lat: -8.613442, lng: 115.082845, emoji: '🌴', text: 'In Bali am Strand chillen' },
+
+        { name: 'Nara', lat: 34.685051, lng: 135.804849, emoji: '🦌', text: 'Das traditionell japanische Nara entdecken' },
+
+        { name: 'Lissabon', lat: 38.722252, lng: -9.139337, emoji: '🚋', text: 'Zusammen Lissabon erkunden!' },
+
+        { name: 'Buenos Aires', lat: -34.603722, lng: -58.381592, emoji: '💃', text: 'Südamerika und meine Spanisch-Skills.' },
+
+        { name: 'Tower Bridge', lat: 51.505456, lng: -0.075356, emoji: '🌉' },
+
+        { name: 'The Shard', lat: 51.504501, lng: -0.086500, emoji: '🏙️', text: 'London aus dem 80. Stockwerk sehen' },
+
+        { name: 'Buckingham Palace', lat: 51.501364, lng: -0.141890, emoji: '👑' },
+
+        { name: 'QYU Restaurant', lat: 48.137154, lng: 11.576124, emoji: '🍣', text: 'Sushi für Zwei fetzen' },
+
+        { name: 'Luffy Pancake Café', lat: 48.137400, lng: 11.575500, emoji: '🥞' },
+
+        { name: 'NY.Club', lat: 48.139770, lng: 11.565230, emoji: '🪩' },
+
+        { name: 'Englischer Garten', lat: 48.164229, lng: 11.603639, emoji: '🌳', text: 'Ein Sommerpicknick im Park' },
+
+        { name: 'Weideninsel', lat: 48.111716, lng: 11.588235, emoji: '🌊', text: 'Im Sommer in der Isar schwimmen' },
+
+        { name: 'Wiesn', lat: 48.131950, lng: 11.549558, emoji: '🍻', text: 'Zusammen auf der Wiesn dicht sein' },
+
+        { name: 'Elba', lat: 42.778250, lng: 10.192738, emoji: '⛵' },
+
+        { name: 'Lucca', lat: 43.842919, lng: 10.502697, emoji: '🍝' },
+
+        { name: 'Irland', lat: 53.412910, lng: -8.243890, emoji: '☘️' },
+
+        { name: 'Prag', lat: 50.075539, lng: 14.437800, emoji: '🎶', text: 'Zusammen clubben' }
+    ];
+
+    // Alle Marker hinzufügen
+    bucketListPlaces.forEach(place => {
+        L.marker([place.lat, place.lng], {
+            icon: L.divIcon({
+                className: 'custom-marker',
+                html: `<div style="font-size: 28px; cursor: pointer;">${place.emoji}</div>`,
+                iconSize: [35, 35]
+            })
+        }).addTo(map)
+          .bindPopup(`<strong>${place.name}</strong><br>${place.text}`, { maxWidth: 200 })
+          .openPopup();
+    });
+}
+
+// Karte initial laden, wenn sich die Seite öffnet
+document.addEventListener('DOMContentLoaded', function() {
+    // Falls jemand direkt zur Bucket List navigiert
+    if (document.getElementById('bucket-list-screen').classList.contains('active')) {
+        setTimeout(() => {
+            initMap();
+        }, 100);
+    }
+});
