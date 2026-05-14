@@ -2,8 +2,10 @@ body {
     background-color: #ffe6f0;
     font-family: Arial;
     text-align: center;
-    padding-top: 100px;
+    padding: 30px 20px;
     position: relative;
+    margin: 0;
+    min-height: 100vh;
 }
 
 .heart {
@@ -57,9 +59,10 @@ button {
 
 .container {
     position: relative;
-    width: 500px;
-
+    width: 100%;
+    max-width: 360px;
     margin: 0 auto;
+    aspect-ratio: 1;
 }
 
 .generator {
@@ -69,24 +72,22 @@ button {
 
 .knob {
     position: absolute;
-
-    top: 338px;
-    left: 219px;
-
-    width: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15%;
     z-index: 2;
+    cursor: pointer;
 }
 
 .ball{
     position: absolute;
-
-    top: 415px;
-    left: 225px;
-
-    width: 50px;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12%;
     z-index: 2;
     opacity: 0;
-
     pointer-events: none;
 }
 
@@ -153,7 +154,7 @@ button {
 }
 
 .rotate {
-  animation: rotate 0.4s infinite;
+  animation: rotate 0.4s;
 }
 
 @keyframes rotate {
@@ -162,4 +163,32 @@ button {
   50% { transform: rotate(240deg); }
   75% { transform: rotate(320deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* ===== MEDIA QUERY für größere Bildschirme (Tablet/Desktop) ===== */
+@media (min-width: 768px) {
+  body {
+    padding: 60px 40px;
+  }
+
+  .container {
+    max-width: 500px;
+  }
+
+  .noteContainer img {
+    max-width: 500px;
+  }
+
+  .note-text {
+    width: 280px;
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  #reason {
+    font-size: 20px;
+  }
 }
