@@ -204,7 +204,7 @@ function createFallingHeart() {
 }
 
 // Alle 300 Millisekunden ein neues Herz erstellen
-setInterval(createFallingHeart, 100);
+//setInterval(createFallingHeart, 100);
 
 const ballImg =
     document.getElementById("ball");
