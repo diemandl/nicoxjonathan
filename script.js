@@ -262,15 +262,15 @@ function initMap() {
 
         { name: 'Buckingham Palace', lat: 51.501364, lng: -0.141890, emoji: '👑', text: ""  },
 
-        { name: 'QYU Restaurant', lat: 48.137154, lng: 11.576124, emoji: '🍣', text: 'Sushi für Zwei fetzen' },
+        { name: 'QYU Restaurant', lat: 48.133086, lng: 11.578328, emoji: '🍣', text: 'Sushi für Zwei fetzen' },
 
-        { name: 'Luffy Pancake Café', lat: 48.137400, lng: 11.575500, emoji: '🥞', text: ""  },
+        { name: 'Luffy Pancake Café', lat: 48.130313, lng: 11.566904, emoji: '🥞', text: ""  },
 
         { name: 'NY.Club', lat: 48.139770, lng: 11.565230, emoji: '🪩', text: "Doppelslay im Gay-Club ✨✨✨" },
 
         { name: 'Englischer Garten', lat: 48.164229, lng: 11.603639, emoji: '🌳', text: 'Ein Sommerpicknick im Park' },
 
-        { name: 'Weideninsel', lat: 48.111716, lng: 11.588235, emoji: '🌊', text: 'Im Sommer in der Isar schwimmen' },
+        { name: 'Weideninsel', lat: 48.124211, lng: 11.571033, emoji: '🌊', text: 'Im Sommer in der Isar schwimmen' },
 
         { name: 'Wiesn', lat: 48.131950, lng: 11.549558, emoji: '🍻', text: 'Zusammen auf der Wiesn dicht sein' },
 
