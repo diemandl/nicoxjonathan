@@ -1,8 +1,77 @@
 const reasons = [
-    "Weil du mich glücklich machst",
-    "Weil du meine Lieblingsperson bist",
-    "Weil du immer für mich da bist"
+    "Ich liebe deine Augen.",
+    "Ich liebe deine Locken.",
+    "Ich liebe es, wie du beim Reden deine Nase so süß bewegst.",
+    "Ich liebe dich, weil du mich immer zum Lachen bringst.",
+    "Ich liebe dich, weil du immer für mich da bist, wenn ich dich brauche.",
+    "Ich liebe dich, weil du so emotional intelligent bist.",
+    "Ich liebe dich, weil ich mit dir so gut lästern kann.",
+    "Ich liebe dich, weil du immer versuchst dich mit allen gut zu verstehen.",
+    "Ich liebe wie fürsorglich du bist.",
+    "Ich liebe wie gut du kochen kannst.",
+    "Ich liebe dich, weil du es geschafft hast dich so stark zu verändern.",
+    "Ich liebe dich, weil ich weiß, dass du immer ehrlich zu mir bist.",
+    "Ich liebe, dass du immer romantische Pläne für uns beide hast.",
+    "Ich liebe dich, weil du mir so gut zeigst, dass du mich liebst.",
+    "Ich liebe, wie gut ich mit dir kuscheln kann.",
+    "Ich liebe dich, weil ich mich bei dir zu 100% wohl fühle.",
+    "Ich liebe dich, weil ich mit dir über tiefe Themen sprechen kann.",
+    "Ich liebe dich, weil du immer auf meine Meinung Rücksicht nimmst.",
+    "Ich liebe dich, weil ich mit dir immer etwas spannendes erlebe.",
+    "Ich liebe dich, weil du mir die positiven Seiten von Dingen zeigst.",
+    "Ich liebe dich, weil du mir Selbstbewusstsein verleihst.",
+    "Ich liebe dich, weil du mir immer Rat gibst, wenn ich ein Problem habe.",
+    "Ich liebe, wie du mich küsst.",
+    "Ich liebe deinen Geruch.",
+    "Ich liebe dich, weil du mir vergeben kannst.",
+    "Ich liebe dich, weil ich mich bei dir zuhause fühle.",
+    "Ich liebe dich, weil du mich glücklich machst.",
+    "Ich liebe dich, weil du mir meinen Stress abnimmst.",
+    "Ich liebe dich, weil wir die gleichen Dinge lustig finden."
 ];
+
+// ===== DOODLES INITIALIZER =====
+function createDoodles() {
+    const doodleImages = [
+        'doodle1.png', 'doodle2.png', 'doodle3.png', 'doodle4.png',
+        'doodle5.png', 'doodle6.png', 'doodle7.png', 'doodle8.png',
+        'doodle9.png', 'doodle10.png', 'doodle11.png', 'doodle12.png',
+        'doodle13.png', 'doodle14.png'
+    ];
+    
+    const positions = [
+        { top: '8%', left: '5%', size: '50px' },
+        { top: '12%', right: '8%', size: '40px' },
+        { top: '18%', left: '88%', size: '45px' },
+        { bottom: '18%', left: '6%', size: '55px' },
+        { bottom: '10%', right: '8%', size: '48px' },
+        { top: '55%', left: '2%', size: '42px' },
+        { top: '65%', right: '3%', size: '50px' },
+        { top: '35%', right: '5%', size: '44px' },
+        { bottom: '35%', left: '4%', size: '46px' },
+        { top: '75%', left: '85%', size: '52px' }
+    ];
+
+    positions.forEach((pos, idx) => {
+        const randomImage = doodleImages[Math.floor(Math.random() * doodleImages.length)];
+        
+        const doodle = document.createElement('img');
+        doodle.classList.add('doodle', 'floating');
+        doodle.src = 'images/' + randomImage;
+        doodle.alt = 'doodle';
+        doodle.style.top = pos.top || 'auto';
+        doodle.style.bottom = pos.bottom || 'auto';
+        doodle.style.left = pos.left || 'auto';
+        doodle.style.right = pos.right || 'auto';
+        doodle.style.width = pos.size;
+        doodle.style.height = pos.size;
+        doodle.style.animationDelay = (idx * 0.5) + 's';
+        document.body.appendChild(doodle);
+    });
+}
+
+// Starte Doodles beim Laden
+document.addEventListener('DOMContentLoaded', createDoodles);
 
 function startGenerator() {
 
@@ -181,23 +250,23 @@ function initMap() {
 
         { name: 'Bali', lat: -8.613442, lng: 115.082845, emoji: '🌴', text: 'In Bali am Strand chillen' },
 
-        { name: 'Nara', lat: 34.685051, lng: 135.804849, emoji: '🦌', text: 'Das traditionell japanische Nara entdecken' },
+        { name: 'Nara', lat: 34.685051, lng: 135.804849, emoji: '🦌', text: 'Traditionelles Japan.' },
 
         { name: 'Lissabon', lat: 38.722252, lng: -9.139337, emoji: '🚋', text: 'Zusammen Lissabon erkunden!' },
 
         { name: 'Buenos Aires', lat: -34.603722, lng: -58.381592, emoji: '💃', text: 'Südamerika und meine Spanisch-Skills.' },
 
-        { name: 'Tower Bridge', lat: 51.505456, lng: -0.075356, emoji: '🌉' },
+        { name: 'Tower Bridge', lat: 51.505456, lng: -0.075356, emoji: '🌉', text: "" },
 
         { name: 'The Shard', lat: 51.504501, lng: -0.086500, emoji: '🏙️', text: 'London aus dem 80. Stockwerk sehen' },
 
-        { name: 'Buckingham Palace', lat: 51.501364, lng: -0.141890, emoji: '👑' },
+        { name: 'Buckingham Palace', lat: 51.501364, lng: -0.141890, emoji: '👑', text: ""  },
 
         { name: 'QYU Restaurant', lat: 48.137154, lng: 11.576124, emoji: '🍣', text: 'Sushi für Zwei fetzen' },
 
-        { name: 'Luffy Pancake Café', lat: 48.137400, lng: 11.575500, emoji: '🥞' },
+        { name: 'Luffy Pancake Café', lat: 48.137400, lng: 11.575500, emoji: '🥞', text: ""  },
 
-        { name: 'NY.Club', lat: 48.139770, lng: 11.565230, emoji: '🪩' },
+        { name: 'NY.Club', lat: 48.139770, lng: 11.565230, emoji: '🪩', text: "Doppelslay im Gay-Club ✨✨✨" },
 
         { name: 'Englischer Garten', lat: 48.164229, lng: 11.603639, emoji: '🌳', text: 'Ein Sommerpicknick im Park' },
 
@@ -205,13 +274,13 @@ function initMap() {
 
         { name: 'Wiesn', lat: 48.131950, lng: 11.549558, emoji: '🍻', text: 'Zusammen auf der Wiesn dicht sein' },
 
-        { name: 'Elba', lat: 42.778250, lng: 10.192738, emoji: '⛵' },
+        { name: 'Elba', lat: 42.778250, lng: 10.192738, emoji: '⛵', text: ""  },
 
-        { name: 'Lucca', lat: 43.842919, lng: 10.502697, emoji: '🍝' },
+        { name: 'Lucca', lat: 43.842919, lng: 10.502697, emoji: '🍝', text: ""  },
 
-        { name: 'Irland', lat: 53.412910, lng: -8.243890, emoji: '☘️' },
+        { name: 'Irland', lat: 53.412910, lng: -8.243890, emoji: '☘️', text: ""  },
 
-        { name: 'Prag', lat: 50.075539, lng: 14.437800, emoji: '🎶', text: 'Zusammen clubben' }
+        { name: 'Prag', lat: 50.075539, lng: 14.437800, emoji: '🎶', text: 'Clubbing in Prag' }
     ];
 
     // Alle Marker hinzufügen

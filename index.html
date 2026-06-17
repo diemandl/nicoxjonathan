@@ -3,29 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Für ihn ❤️</title>
+    <title>Für Nico ❤️</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="screen active" id="intro-screen">
-    <h1>Für dich ❤️</h1>
-    <p>Ein kleines Liebesgeschenk...</p>
-    <button onclick="showScreen('menu-screen')">Los geht's!</button>
+        <div class="intro-content">
+            <h1>Für Nico </h1>
+            <p>Ich liebe dich!</p>
+            <button onclick="showScreen('menu-screen')">Los geht's!</button>
+        </div>
+        
+        <!-- Polaroid Photo Frames -->
+        <div class="polaroid-gallery">
+            <div class="polaroid" style="transform: rotate(-3deg);">
+                <div class="polaroid-image">
+                    <img src="images/polaroid1.jpeg" alt="Fotos von uns" class="polaroid-img" id="photo-1">
+                </div>
+                <div class="polaroid-label">Wir zwei 💕</div>
+            </div>
+            
+            <div class="polaroid" style="transform: rotate(2deg);">
+                <div class="polaroid-image">
+                    <img src="images/polaroid2.jpeg" alt="Unser Abenteuer" class="polaroid-img" id="photo-2">
+                </div>
+                <div class="polaroid-label">Abenteuer 🌍</div>
+            </div>
+            
+            <div class="polaroid" style="transform: rotate(-1.5deg);">
+                <div class="polaroid-image">
+                    <img src="images/polaroid3.jpeg" alt="Gemeinsame Momente" class="polaroid-img" id="photo-3">
+                </div>
+                <div class="polaroid-label">Gemeinsam 🤍</div>
+            </div>
+            
+            <div class="polaroid" style="transform: rotate(2.5deg);">
+                <div class="polaroid-image">
+                    <img src="images/polaroid4.jpeg" alt="Unsere Geschichte" class="polaroid-img" id="photo-4">
+                </div>
+                <div class="polaroid-label">Unsere Story 📖</div>
+            </div>
+        </div>
     </div>
 
     <!-- MENU SCREEN -->
     <div class="screen" id="menu-screen">
-    <h2>Was möchtest du machen?</h2>
-    <button onclick="showScreen('generator-screen')">💕 Warum ich dich liebe</button>
-    <button onclick="showScreen('timeline-screen')">📅 Unsere Timeline</button>
-    <button onclick="showScreen('bucket-list-screen')">🎯 Bucket List</button>
+        <h2>Was möchtest du machen?</h2>
+        <button onclick="showScreen('generator-screen')">💕 Warum ich dich liebe</button>
+        <button onclick="showScreen('timeline-screen')">📅 Unsere Timeline</button>
+        <button onclick="showScreen('bucket-list-screen')">🎯 Bucket List</button>
+        <button onclick="showScreen('intro-screen')" class="back-button">← Zurück</button>
     </div>
 
     <div class="screen" id="generator-screen">
-        <h1>Love Generator ❤️</h1>
+        <h1>Love Machine</h1>
 
         <div class="container" id="generator">
 
@@ -53,7 +90,87 @@
     <!-- TIMELINE SCREEN -->
     <div class="screen" id="timeline-screen">
         <h1>📅 Unsere Timeline</h1>
-        <p>Coming soon...</p>
+        <div class="timeline-container">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">01.11.2025</div>
+                        <div class="timeline-title">Erstes Date ❤️</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">28.11.2025</div>
+                        <div class="timeline-title">Mein erster Monopoly-Sieg... 💵</div>
+                        <p>Der zweitbeste Moment...</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">28.11.2025</div>
+                        <div class="timeline-title">Erster Kuss 😘</div>
+                        <p>Der BESTE Moment</p>
+                    </div>
+                </div>
+
+                
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">24.12.2025</div>
+                        <div class="timeline-title">Erstes gemeinsames Weihnachten 🎄</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">24.12.2025</div>
+                        <div class="timeline-title">Erstes gemeinsames Silvester 🎆</div>
+                        <p>Auch wenn du fett krank warst 😢</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">03.01.2026</div>
+                        <div class="timeline-title">Zusammenkommen 💕</div>
+                        <p>Am schönsten Ort überhaupt</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">04.03.2026</div>
+                        <div class="timeline-title">Erster Urlaub 🏖️</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">13.06.2026</div>
+                        <div class="timeline-title">Erste Nacht in deiner neuen Wohnung 💤</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">17.06.2026 - ∞</div>
+                        <div class="timeline-title">Und noch ganz viel mehr... ♥️</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <button onclick="showScreen('menu-screen')" class="back-button">← Zurück</button>
     </div>
 
